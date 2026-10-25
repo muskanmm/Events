@@ -102,17 +102,17 @@ func money(_ cents: Int) -> String { String(format: "$%.2f", Double(cents) / 100
  
 Task {
     do {
-//        print("1. Guest RSVPs to event_rooftop_mixer, collecting the deposit...")
-//        let payment = try await collectDeposit(cents: 500,
-//                                               eventId: "event_rooftop_mixer",
-//                                               userId: "user_muskan")
-//        print("\nParsed StripePaymentIntent:")
-//        print("  id:       \(payment.id)")
-//        print("  amount:   \(money(payment.amount)) \(payment.currency.uppercased())")
-//        print("  status:   \(payment.status)")
-//        print("  metadata: \(payment.metadata)")
-//        print("  -> Save \(payment.id) as rsvps/user_muskan.paymentId, depositStatus = \"held\"")
-// 
+       print("1. Guest RSVPs to event_rooftop_mixer, collecting the deposit...")
+       let payment = try await collectDeposit(cents: 500,
+                                              eventId: "event_rooftop_mixer",
+                                              userId: "user_muskan")
+       print("\nParsed StripePaymentIntent:")
+       print("  id:       \(payment.id)")
+       print("  amount:   \(money(payment.amount)) \(payment.currency.uppercased())")
+       print("  status:   \(payment.status)")
+       print("  metadata: \(payment.metadata)")
+       print("  -> Save \(payment.id) as rsvps/user_muskan.paymentId, depositStatus = \"held\"")
+
         print("\n2. Host checks the guest in, refunding the deposit...")
         let refund = try await refundDeposit(paymentIntentId: "pi_3UUTmR38JhxoPi8D0k11QHIf")
         print("\nParsed StripeRefund:")
